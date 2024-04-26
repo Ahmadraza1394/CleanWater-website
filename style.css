@@ -1,0 +1,12 @@
+/* ---------------FOR USING LORA FONT------------------ */
+@font-face {
+  font-family: "Garamond";
+  font-style: normal;
+  font-weight: 400;
+  src: local("EB Garamond Regular"), local("EBGaramond-Regular"),
+    url(path_to_your_font/EBGaramond-Regular.ttf) format("truetype");
+}
+
+.garamond-font {
+  font-family: "Garamond", serif;
+}

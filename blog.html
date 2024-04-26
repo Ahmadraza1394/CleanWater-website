@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/base.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body class="scroll-smooth">
+    <!----------------------- NAVBAR -------------------------->
+    <nav class="garamond-font bg-blue-300 py-2 sm:py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <!-- Logo section -->
+          <div class="flex-shrink-0">
+            <span class="font-normal text-4xl sm:text-5xl tracking-tight"
+              >CleanWater</span
+            >
+          </div>
+
+          <!-- Search input on medium and larger screens, hidden on small screens -->
+          <div class="hidden sm:block w-full md:w-1/3 lg:w-1/4">
+            <div class="relative mt-1">
+              <input
+                type="search"
+                id="search"
+                class="w-full px-4 py-2 text-black text-sm bg-gray-100 rounded-md"
+                placeholder="Search now..."
+              />
+              <!-- Search icon -->
+              <button
+                type="submit"
+                class="absolute right-2 top-2 focus:outline-none"
+                onclick="focusSearch()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-6 h-6 bg-black p-1 rounded-full text-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="sm:hidden">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:ring-2 focus:ring-inset focus:ring-green-500"
+              aria-expanded="false"
+              id="mobileMenuButton"
+            >
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div
+            class="hidden sm:flex sm:items-center sm:space-x-8"
+            id="desktopMenu"
+          >
+            <a
+              href="index.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="subscriptionsLink"
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="aboutLink"
+              >Products</a
+            >
+            <a
+              href="blog.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="contactLink"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="contactLink"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div
+        class="sm:hidden h-screen bg-gray-900 scale-up-bottom"
+        id="mobileMenu"
+      >
+        <div class="pt-8 pb-4 space-y-1">
+          <!-- Mobile Navigation Links -->
+          <a
+            href="index.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileSubscriptionsLink"
+            >Home</a
+          >
+          <a
+            href="products.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileAboutLink"
+            >Products</a
+          >
+          <a
+            href="blog.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileContactLink"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileContactLink"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Search input -->
+        <div class="relative">
+          <input
+            type="search"
+            id="search"
+            class="w-80 px-12 py-4 sm:w-96 sm:px-12 sm:py-6 rounded-2xl text-white text-xl bg-gray-800"
+            placeholder="Search ..."
+          />
+          <!-- Search icon -->
+          <button
+            type="button"
+            class="absolute left-64 top-1/2 transform -translate-y-1/2 focus:outline-none"
+            onclick="focusSearch()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-10 h-10 p-1 rounded-full bg-white text-gray-800"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
+    <main class="container mx-auto mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!--------------- BLOG POST CONTENT ---------------->
+            <article class="md:col-span-2 bg-gray-100 p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4"> Saving Water: A Crucial Step for Preserving Humanity</h2>
+                <p class="text-gray-600 mb-4">Posted on <time datetime="2024-04-26">April 26, 2024</time> by John Smith</p>
+                <img src="./images/waterglass.jpg" alt="Blog Post Image" class="w-full h-auto mb-4">
+                <div class="mb-4">
+                    <p class="text-gray-700 text-lg py-2 text-justify">Water, the elixir of life, is a finite resource essential for all living beings. Yet, across the globe, water scarcity looms as a pressing threat to humanity's survival. The imperative to conserve water has never been more urgent. Saving water is not merely an environmental responsibility but a moral obligation to safeguard our shared future.
+
+                        The consequences of water scarcity ripple far and wide, impacting agriculture, health, and economic stability. By adopting simple yet effective water-saving practices, such as fixing leaks, reducing consumption, and implementing efficient irrigation techniques, we can mitigate the effects of water scarcity and ensure its equitable distribution.
+                        
+                       </p>
+
+
+
+                       <p class="text-gray-700 text-lg py-2 text-justify">
+                        Moreover, raising awareness about water conservation is paramount. Education empowers individuals to make informed choices and cultivate sustainable habits. Through collective action and policy reforms, we can enact meaningful change and pave the way for a water-secure future for all.
+                        
+                        In conclusion, saving water is not just about preserving a vital resource; it's about safeguarding humanity's legacy for generations to come. Let us pledge to cherish and conserve every drop, for in saving water, we preserve the essence of life itself.
+                       </p>
+                       
+                       <p class="text-gray-700 text-lg py-2 text-justify">
+                        Moreover, raising awareness about water conservation is paramount. Education empowers individuals to make informed choices and cultivate sustainable habits. Through collective action and policy reforms, we can enact meaningful change and pave the way for a water-secure future for all.
+                        
+                        In conclusion, saving water is not just about preserving a vital resource; it's about safeguarding humanity's legacy for generations to come. Let us pledge to cherish and conserve every drop, for in saving water, we preserve the essence of life itself.
+                       </p>
+                </div>
+                <div class="mb-4">
+                    <h3 class="text-lg font-bold mb-2">Comments</h3>
+                    <ul>
+                        <li class="mb-2">
+                            <p class="text-gray-800 font-semibold">John Doe</p>
+                            <p class="text-gray-600">April 27, 2024</p>
+                            <p class="text-gray-700">This is a great post!</p>
+                        </li>
+                        <!-- More comments go here -->
+                    </ul>
+                </div>
+            </article>
+
+   <!----------------- SIDEBAR FOR RECENT POSTS ------------>
+            <aside class="md:col-span-1 ">
+          
+<div class="bg-gray-100 p-6 rounded-lg shadow">
+    <h2 class="text-xl font-bold mb-4">Recent Posts</h2>
+ 
+    <a href="#" class="block bg-gray-800 text-white  mb-6 overflow-hidden rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        <img src="./images/water.jpg" alt="Blog Post Image" class="w-full h-48 object-cover">
+        <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">Blog Post 2</h3>
+            <p class="text-gray-600">Posted on <time datetime="2024-04-27">April 27, 2024</time> by Author</p>
+            <p class="text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt nisi nec nisl fringilla, sed bibendum lorem fringilla. Nullam vel velit ac ante imperdiet dictum.</p>
+        </div>
+    </a>
+
+    <a href="#" class="block mb-6  bg-gray-800 text-white overflow-hidden rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        <img src="./images/drop.jpg" alt="Blog Post Image" class="w-full h-48 object-cover">
+        <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">Blog Post 2</h3>
+            <p class="text-gray-600">Posted on <time datetime="2024-04-27">April 27, 2024</time> by Author</p>
+            <p class="text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt nisi nec nisl fringilla, sed bibendum lorem fringilla. Nullam vel velit ac ante imperdiet dictum.</p>
+        </div>
+    </a>
+    <a href="#" class="block mb-6  bg-gray-800 text-white overflow-hidden rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        <img src="./images/water.jpg" alt="Blog Post Image" class="w-full h-48 object-cover">
+        <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">Blog Post 2</h3>
+            <p class="text-gray-600">Posted on <time datetime="2024-04-27">April 27, 2024</time> by Author</p>
+            <p class="text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt nisi nec nisl fringilla, sed bibendum lorem fringilla. Nullam vel velit ac ante imperdiet dictum.</p>
+        </div>
+    </a>
+</div>
+
+            </aside>
+        </div>
+    </main>
+
+   <!---------------------------- FOOTER --------------------------->
+   <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Quick Links -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          
+            <li><a href="products.html">Product</a></li>
+    
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact Information -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+          <p>Contact us at email@example.com<br />Call us at +1234567890</p>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold mb-4">Social Media</h4>
+          <div class="flex space-x-4">
+            <a href="#"
+              ><img  class="h-8 w-8 " src="./images/twitter-svgrepo-com.svg" alt=""></a>
+            <a href="#"></a>
+              <img class=" h-8 w-8 bg-blue-700"  src="./images/facebook-svgrepo-com.svg" alt="" />
+            </a>
+            <a href="#"
+              >  <img class="h-9 w-9" src="./images/linkedin-svgrepo-com.svg" alt=""> </a>
+          </div>
+        </div>
+        <!-- Newsletter Signup -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold mb-4">Newsletter Signup</h4>
+          <p>
+            Stay updated with the latest from JVHO-Tech. Subscribe to our
+            newsletter!
+          </p>
+          <div class="mt-4">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="w-full py-2 px-4 rounded-md bg-gray-900 text-white focus:outline-none focus:bg-gray-700"
+            />
+            <button
+              class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-2 focus:outline-none"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  <!-- Footer content goes here -->
+</footer>
+
+  </body>
+</html>

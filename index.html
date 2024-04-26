@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/base.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body class="scroll-smooth bg-blue-300">
+    <!----------------------- NAVBAR -------------------------->
+    <nav class="garamond-font bg-white-50 py-2 sm:py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <!-- Logo section -->
+          <div class="flex-shrink-0">
+            <span class="font-normal text-4xl sm:text-5xl tracking-tight"
+              >CleanWater</span
+            >
+          </div>
+
+          <!-- Search input on medium and larger screens, hidden on small screens -->
+          <div class="hidden sm:block w-full md:w-1/3 lg:w-1/4">
+            <div class="relative mt-1">
+              <input
+                type="search"
+                id="search"
+                class="w-full px-4 py-2 text-black text-sm bg-gray-100 rounded-md"
+                placeholder="Search now..."
+              />
+              <!-- Search icon -->
+              <button
+                type="submit"
+                class="absolute right-2 top-2 focus:outline-none"
+                onclick="focusSearch()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-6 h-6 bg-black p-1 rounded-full text-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="sm:hidden">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:ring-2 focus:ring-inset focus:ring-green-500"
+              aria-expanded="false"
+              id="mobileMenuButton"
+            >
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div
+            class="hidden sm:flex sm:items-center sm:space-x-8"
+            id="desktopMenu"
+          >
+            <a
+              href="index.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="subscriptionsLink"
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="aboutLink"
+              >Products</a
+            >
+            <a
+              href="blog.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="contactLink"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="font-roboto-slab uppercase text-xl text-black hover:text-white-50 px-3 py-2 rounded-md text-sm font-medium"
+              id="contactLink"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div
+        class="sm:hidden h-screen bg-gray-900 scale-up-bottom"
+        id="mobileMenu"
+      >
+        <div class="pt-8 pb-4 space-y-1">
+          <!-- Mobile Navigation Links -->
+          <a
+            href="index.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileSubscriptionsLink"
+            >Home</a
+          >
+          <a
+            href="products.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileAboutLink"
+            >Products</a
+          >
+          <a
+            href="blog.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileContactLink"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="border-transparent text-white hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-5xl font-light"
+            id="mobileContactLink"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Search input -->
+        <div class="relative">
+          <input
+            type="search"
+            id="search"
+            class="w-80 px-12 py-4 sm:w-96 sm:px-12 sm:py-6 rounded-2xl text-white text-xl bg-gray-800"
+            placeholder="Search ..."
+          />
+          <!-- Search icon -->
+          <button
+            type="button"
+            class="absolute left-64 top-1/2 transform -translate-y-1/2 focus:outline-none"
+            onclick="focusSearch()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-10 h-10 p-1 rounded-full bg-white text-gray-800"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-----------------------  HERO SECTION ----------------------->
+
+    <section
+      class="hero flex h-screen items-center justify-center bg-cover bg-center relative"
+      style="background-image: url('./images/drop.jpg')"
+    >
+      <div
+        class="absolute top-0 left-0 h-full w-full bg-black opacity-50"
+      ></div>
+      <div class="text-center relative z-10">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-bold">
+          Clean Water for All
+        </h1>
+        <p class="text-lg md:text-xl lg:text-2xl text-white mt-4">
+          Empowering Communities with Sustainable Water Solutions
+        </p>
+        <div class="mt-8">
+          <a
+            href="#"
+            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+            >Explore Our Technology</a
+          >
+          <a
+            href="#"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded ml-4"
+            >Make a Difference Today</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!---------------------- About JVHO-Tech ---------------------->
+    <section class="py-12 bg-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">About JVHO-Tech</h2>
+          <p class="text-lg lg:text-xl mb-8 leading-relaxed">
+            At JVHO-Tech, we believe that access to clean water is a fundamental
+            human right. Our portable and sustainable water purification systems
+            are designed to bring safe, drinkable water to the most remote and
+            underserved communities around the world. Join us in our mission to
+            tackle one of humanity's most critical challenges.
+          </p>
+          <div>
+            <a
+              href="#"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded"
+              >Learn More About Our Technology</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact and Testimonials -->
+    <section class="py-12 bg-blue-200">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-center">
+          Impact and Testimonials
+        </h2>
+        <!-- Testimonials Carousel -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center mb-4">
+              <img
+                src="./images/review.jpeg"
+                alt="Testimonial 1"
+                class="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <p class="italic text-gray-700">
+                  "Driven by innovation and compassion, JVHO-Tech has already
+                  impacted thousands of lives. From small villages in Africa to
+                  temporary shelters in disaster zones, hear directly from the
+                  people who now have access to clean, safe water thanks to our
+                  technology."
+                </p>
+                <p class="text-right mt-2 text-gray-800">
+                  - John Doe, Village Elder
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center mb-4">
+              <img
+                src="./images/reviewImg.jpg"
+                alt="Testimonial 2"
+                class="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <p class="italic text-gray-700">
+                  "The water purification system from JVHO-Tech has been a
+                  game-changer for our community. We now have access to clean
+                  water that has improved our health and well-being."
+                </p>
+                <p class="text-right mt-2 text-gray-800">
+                  - Jane Smith, Community Leader
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a
+            href="#"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            >See Our Impact</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!------------------ Call to Action Section -------------------->
+    <section class="py-12 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+            Ready to make a difference?
+          </h2>
+          <p class="text-lg lg:text-xl mb-8 leading-relaxed">
+            Whether you’re looking to purchase, partner, or donate, your support
+            helps us bring clean water to those who need it most. Get involved
+            today and help us spread the gift of clean water worldwide.
+          </p>
+          <div class="flex flex-col lg:flex-row items-center justify-center">
+            <a
+              href="#"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded mb-2 lg:mb-0 lg:mr-2"
+              >Purchase a System</a
+            >
+            <a
+              href="#"
+              class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded mb-2 lg:mb-0 lg:mx-2"
+              >Join Our Partners</a
+            >
+            <a
+              href="#"
+              class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded mb-2 lg:mb-0 lg:ml-2"
+              >Donate Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!---------------------------- FOOTER --------------------------->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Quick Links -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+            
+              <li><a href="products.html">Product</a></li>
+      
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Contact Information -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+            <p>Contact us at email@example.com<br />Call us at +1234567890</p>
+          </div>
+          <!-- Social Media Icons -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold mb-4">Social Media</h4>
+            <div class="flex space-x-4">
+              <a href="#"
+                ><img  class="h-8 w-8 " src="./images/twitter-svgrepo-com.svg" alt=""></a>
+              <a href="#"></a>
+                <img class=" h-8 w-8 bg-blue-700"  src="./images/facebook-svgrepo-com.svg" alt="" />
+              </a>
+              <a href="#"
+                >  <img class="h-9 w-9" src="./images/linkedin-svgrepo-com.svg" alt=""> </a>
+            </div>
+          </div>
+          <!-- Newsletter Signup -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold mb-4">Newsletter Signup</h4>
+            <p>
+              Stay updated with the latest from JVHO-Tech. Subscribe to our
+              newsletter!
+            </p>
+            <div class="mt-4">
+              <input
+                type="email"
+                placeholder="Your email address"
+                class="w-full py-2 px-4 rounded-md bg-gray-900 text-white focus:outline-none focus:bg-gray-700"
+              />
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-2 focus:outline-none"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
